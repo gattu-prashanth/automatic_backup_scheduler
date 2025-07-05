@@ -1,0 +1,62 @@
+# 🔄 Automated Backup Scheduler (Python + AWS S3)
+
+## 🧠 Project Overview
+
+This project is an **Infrastructure Automation tool** that automatically creates backups of important files or folders and uploads them to **AWS S3 cloud storage**. It is designed to be lightweight, secure, and suitable for running on a schedule (daily or hourly).
+
+---
+
+## 🚀 Features
+
+- 📦 Automatically compresses folders into `.zip` archives
+- ☁️ Uploads backups to an Amazon S3 bucket
+- ⏰ Can be scheduled to run daily or manually triggered
+- 🧾 Retains backup history with timestamps
+- 💡 AWS Free Tier friendly
+- 🔐 Optional file encryption (via `cryptography`)
+
+---
+
+## 📁 Project Structure
+
+auto_backup_scheduler/
+├── data_to_backup/ # Folder to back up
+├── backups/ # Stores generated zip files
+├── backup_to_s3.py # Main script
+├── README.md # Project guide
+└── .aws/ # AWS credentials (not tracked in git)
+
+
+---
+
+## 🛠️ Prerequisites
+
+### ✅ 1. Install Python (>= 3.10)
+
+Download from: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
+> Make sure to check: ✅ "Add Python to PATH"
+
+### ✅ 2. Install Required Python Packages
+
+```bash
+pip install boto3 schedule cryptography
+[default]
+aws_access_key_id = YOUR_AWS_ACCESS_KEY
+aws_secret_access_key = YOUR_AWS_SECRET_KEY
+
+C:\Users\<YourName>\.aws\config
+
+
+4. Create an S3 Bucket
+Go to https://s3.console.aws.amazon.com/s3/
+
+Create a new bucket (e.g., my-mtech-backup)
+
+Set region same as in config (e.g., ap-south-1)
+
+to run file
+python backup_to_s3.py
+
+to create a file in datatobackup
+echo "This is a test file for M.Tech backup project" > data_to_backup/test1.txt
